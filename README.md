@@ -1,142 +1,153 @@
-![StepperTune](images/skin.png)
+![StepperTune Professional](images/skin.png)
 
-StepperTune is a desktop application for creating melodies and converting them into G-code jingles for supported Bambu Lab printers.
+# StepperTune Professional
 
-It can work with melodies entered manually or imported from MIDI files, lets you preview the result on your PC, and generates the sound section to be used as printer Start G-code or End G-code.
+**Turn MIDI music into G-code and let your Bambu Lab printer play it using its stepper motors.**
+
+StepperTune Professional is a Windows application for importing, arranging, previewing and converting MIDI music into G-code for supported Bambu Lab printers.
+
+What started as a simple MIDI-to-G-code converter has evolved into a multi-voice music environment designed specifically around the capabilities of different Bambu Lab printer models.
+
+Depending on the selected printer, StepperTune can generate either monophonic or polyphonic stepper music.
 
 ---
 
 ## Main Features
 
-🎵 **Manual Melody Input**
-- Enter notes directly using a simple `NOTE@DURATION` syntax
-- Supports sharps, octaves and rests
-- Adjustable BPM
+### 🎹 MIDI Import
 
-🎹 **MIDI Import**
 - Load standard MIDI files
-- Select the desired MIDI track
-- Automatically convert timing and notes into StepperTune melody data
+- Select and arrange MIDI tracks
+- Convert MIDI notes and timing automatically
+- Adapt musical data for stepper-motor playback
 
-▶ **Preview**
-- Listen to the melody before generating G-code
-- Play / Stop controls
+### 🎼 Multi-Voice Arrangement
 
-🧩 **Printer-Specific G-code Generation**
-- Automatically applies the correct sound driver for the selected printer
-- Generates Start G-code and End G-code sections
-- No manual M1006 editing required for normal use
+StepperTune Professional supports up to three independent musical voices.
 
-🔄 **Update Check**
+Each voice can be configured and previewed separately, allowing MIDI tracks to be arranged specifically for the printer.
+
+On compatible printers, multiple voices can be played simultaneously to create polyphonic stepper music.
+
+### ▶ Independent Preview
+
+- Play / Stop each voice individually
+- Play multiple selected voices together
+- Preview the complete arrangement before generating G-code
+- Adjustable volume for each voice
+
+The PC preview helps balance the arrangement before sending it to the printer.
+
+### 🔊 Monophonic and Polyphonic Modes
+
+StepperTune automatically adapts its available functions to the selected printer.
+
+**Monophonic mode**
+- Designed for printers supporting a single musical voice
+- Simplified voice controls
+- MIDI-to-stepper conversion optimized for single-voice playback
+
+**Polyphonic mode**
+- Up to three independent voices
+- Individual voice volume
+- Simultaneous playback
+- Multi-voice G-code generation
+
+Available functionality depends on the selected printer model.
+
+### 🧩 Printer-Specific G-code Generation
+
+StepperTune automatically applies the appropriate sound generation method for the selected printer.
+
+- Generate printer-ready G-code
+- Export the finished music
+- Use the generated sequence as part of Start G-code or End G-code
+- No manual editing of individual `M1006` notes required for normal use
+
+### 💾 StepperTune Project Files
+
+Arrangements can be saved as StepperTune `.stf` project files and reopened later without rebuilding the MIDI configuration.
+
+### 🔄 Update Check
+
 - Automatic update check at application startup
 - Manual `Help > Check for Updates`
-- Uses `latest.txt` hosted on GitHub
+- Version information retrieved online
 
-📘 **User Manual**
-- Full Italian and English manuals
-- Includes the Bambu Studio installation procedure
+### 📘 User Manual
+
+Italian and English documentation is included with the application.
+
+The manual covers the complete workflow, interface, MIDI import, voice configuration, G-code generation and Bambu Studio setup.
 
 ---
 
 ## Supported Printers
 
-- Bambu Lab A1
-- Bambu Lab A1 mini
-- Bambu Lab H2S
-- Bambu Lab H2D
-- Bambu Lab X2D
-- Bambu Lab P2S
+StepperTune Professional currently supports:
+
+| Printer | Playback mode |
+|---|---|
+| Bambu Lab A1 | Monophonic |
+| Bambu Lab A1 mini | Monophonic |
+| Bambu Lab H2S | Polyphonic |
+| Bambu Lab H2D | Polyphonic |
+| Bambu Lab X2D | Polyphonic |
+| Bambu Lab P2S | Printer-specific mode |
 
 > Always select the correct printer model before generating G-code.
 
----
-
-## Melody Format
-
-Each event uses:
-
-```text
-NOTE@DURATION
-```
-
-Example:
-
-```text
-C4@0.25 D4@0.25 E4@0.5 REST@0.25 G4@0.5
-```
-
-Examples:
-
-- `C4@0.25` → C, octave 4
-- `F#5@0.5` → F sharp, octave 5
-- `REST@0.25` → pause
-
-The BPM value determines the actual playback speed.
+Support and available playback modes may evolve as additional printer models and firmware versions are tested.
 
 ---
 
 ## Basic Workflow
 
-1. Select your printer model
-2. Enter a melody or load a MIDI file
-3. Set/check BPM and MIDI track
-4. Press **Play** to preview the melody
-5. Press **Start G-code** or **End G-code**
-6. Copy or export the generated G-code
-7. Insert the generated sound block into Bambu Studio
+1. Select your Bambu Lab printer
+2. Import a MIDI file
+3. Assign and configure the desired musical voices
+4. Preview individual voices or the complete arrangement
+5. Adjust voice levels if necessary
+6. Generate the printer-specific G-code
+7. Export the finished result
+8. Use it directly or add it to the printer Start / End G-code
 
 ---
 
-## Adding the Sound to Bambu Studio
+## Adding Music to Bambu Studio
 
-The procedure follows the official Bambu Lab MIDI/G-code documentation.
+Generated music can be inserted into the dedicated sound section of a printer preset.
 
 1. Open **Bambu Studio**
 2. In the **Prepare** tab, select the correct printer and nozzle size
 3. Click **Edit preset**
 4. Enable **Advanced**
 5. Open the **Machine G-code** tab
-6. For the start sound, locate the `start printer sound` section in **Machine start G-code**
-7. Replace only the sound block with the code generated by **Start G-code**
-8. For the end sound, locate the `printer finish sound` section in **Machine end G-code**
-9. Replace only the sound block with the code generated by **End G-code**
-10. Save the preset
+6. Locate the printer sound section in **Machine start G-code** or **Machine end G-code**
+7. Replace only the existing sound block with the code generated by StepperTune
+8. Save the printer preset
 
 ### Important
 
 Do **not** replace the entire Machine start G-code or Machine end G-code.
 
-Only replace the section dedicated to the printer sound.
+Only replace the section dedicated to printer sound.
 
 Preserve all G-code line breaks when copying and pasting.
 
-Official reference:
+Official Bambu Lab MIDI reference:
+
 https://wiki.bambulab.com/en/A1-mini/Midi
 
 ---
 
-## User Manual
+## From StepperTune to StepperTune Professional
 
-The repository includes:
+StepperTune originally started as a simple tool for creating melodies and converting MIDI tracks into printer G-code.
 
-- Italian User Manual
-- English User Manual
+The Professional version expands that concept with multi-voice arrangements, printer-specific playback modes, independent voice control, project files and polyphonic stepper music on compatible printers.
 
-The manuals contain the full workflow, interface legend, MIDI usage, Bambu Studio procedure, supported printers and safety notes.
-
----
-
-## Disclaimer
-
-StepperTune is an independent project and is not an official Bambu Lab product.
-
-It is not affiliated with, sponsored by, or endorsed by Bambu Lab.
-
-The application generates G-code commands that operate the printer motors to produce sound. The user is responsible for selecting the correct printer model, reviewing the generated code, and inserting it into the correct sound section of the printer preset.
-
-Firmware, Bambu Studio and G-code behavior may change over time. Always verify correct operation after software or firmware updates.
-
-Use of manually modified G-code, unsupported printers, or replacement of Machine G-code sections other than the dedicated sound block is entirely at the user's own risk.
+Previous versions remain available in the repository release history for archival purposes.
 
 ---
 
@@ -145,6 +156,20 @@ Use of manually modified G-code, unsupported printers, or replacement of Machine
 - Windows
 - Bambu Studio
 - Supported Bambu Lab printer
+
+---
+
+## Disclaimer
+
+StepperTune Professional is an independent project and is not an official Bambu Lab product.
+
+It is not affiliated with, sponsored by, or endorsed by Bambu Lab.
+
+The application generates G-code commands that operate printer motors to produce sound. The user is responsible for selecting the correct printer model, reviewing the generated code and using it with the appropriate printer configuration.
+
+Firmware, Bambu Studio and G-code behavior may change over time. Always verify correct operation after software or firmware updates.
+
+Use of manually modified G-code, unsupported printers, or replacement of Machine G-code sections other than the dedicated sound block is entirely at the user's own risk.
 
 ---
 
