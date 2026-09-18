@@ -39,11 +39,13 @@ The number of available voices automatically adapts to the selected printer.
 StepperTune automatically configures the music engine according to the selected printer architecture.
 
 **Monophonic mode**
+
 - Single musical voice
 - Designed for printers using the Cartesian sound driver
 - Simplified controls for single-voice playback
 
 **Polyphonic mode**
+
 - Up to three simultaneous voices
 - Independent volume for each voice
 - Multi-voice PC preview
@@ -59,7 +61,7 @@ Listen to the arrangement before generating the final G-code.
 - Play multiple voices together
 - Play All control
 - Individual voice volume
-- Preview the final musical arrangement directly on the PC
+- Preview the complete musical arrangement directly on the PC
 
 ### ⚖ Auto Balance
 
@@ -101,7 +103,7 @@ This allows a composition to be edited later without rebuilding the project from
 
 ### 📘 User Manual
 
-Italian and English documentation is available for StepperTune.
+Italian and English documentation is available for StepperTune Professional.
 
 The manuals cover:
 
@@ -130,7 +132,7 @@ The manuals cover:
 
 > Always select the correct printer model before generating G-code.
 
-Printer support refers to the playback mode implemented by StepperTune Professional. Actual behavior can also depend on printer firmware and G-code support.
+Printer support refers to the playback mode implemented by StepperTune Professional. Actual behavior may also depend on printer firmware and G-code support.
 
 ---
 
@@ -218,6 +220,23 @@ Previous versions remain part of the project history, while **StepperTune Profes
 - Windows
 - Bambu Studio
 - Supported Bambu Lab printer
+
+---
+
+## Free Activation
+
+StepperTune Professional requires an activation code.
+
+**The activation code is completely free.**
+
+The activation system was introduced to help protect the project and prevent unauthorized commercial redistribution. It is not a paid licensing system and there is no charge for using StepperTune Professional.
+
+Activation codes are provided manually by DGVeLab and are therefore **not generated automatically or immediately**.
+
+After submitting an activation request, please allow some time for a response. Requests are normally processed **within the same day**.
+
+> **StepperTune Professional is free to use.**  
+> The activation system exists only to protect the project and its distribution.
 
 ---
 
